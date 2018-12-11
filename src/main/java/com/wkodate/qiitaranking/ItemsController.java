@@ -1,9 +1,6 @@
 package com.wkodate.qiitaranking;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,9 +18,35 @@ public class ItemsController {
         return itemRepository.findAll();
     }
 
+    @GetMapping("/items/{id}")
+    public Item getItem(@PathVariable Long id) {
+        return itemRepository.findById(id).orElseThrow(() -> new ItemNotFoundException(id));
+
+    }
+
     @PostMapping("/items")
     public Item postItem(@RequestBody Item item) {
         return itemRepository.save(item);
+    }
+
+    @PutMapping("/items/{id}")
+    public Item putItem(@RequestBody Item newItem, @PathVariable Long id) {
+        return itemRepository.findById(id)
+                .map(item -> {
+                    item.setUser(newItem.getUser());
+                    item.setUrl(newItem.getUrl());
+                    item.setLikesCount(newItem.getLikesCount());
+                    return itemRepository.save(item);
+                })
+                .orElseGet(() -> {
+                    newItem.setId(id);
+                    return itemRepository.save(newItem);
+                });
+    }
+
+    @DeleteMapping("/items/{id}")
+    public void delete(@PathVariable Long id) {
+        itemRepository.deleteById(id);
     }
 
 }
