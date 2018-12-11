@@ -1,4 +1,4 @@
-package com.wkodate.qiita;
+package com.wkodate.qiitaranking;
 
 import lombok.Data;
 

@@ -1,4 +1,4 @@
-package com.wkodate.qiita;
+package com.wkodate.qiitaranking;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
