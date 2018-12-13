@@ -1,5 +1,7 @@
-package com.wkodate.qiitarank;
+package com.wkodate.qiitarank.app;
 
+import com.wkodate.qiitarank.domain.model.Item;
+import com.wkodate.qiitarank.domain.repository.ItemRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
