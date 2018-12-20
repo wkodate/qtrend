@@ -1,5 +1,6 @@
 package com.wkodate.qiitarank.domain.service;
 
+import com.wkodate.qiitarank.domain.model.UserPost;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -14,7 +15,7 @@ public class ItemFetcher {
 
     private static final String ENDPOINT = "/api/v2/items";
 
-    private static final String QUERY_PARAMETER = "?page=1&per_page=5";
+    private static final String QUERY_PARAMETER = "?page=1&per_page=1";
 
     @Value("${host}")
     private String host;
@@ -22,8 +23,8 @@ public class ItemFetcher {
     @Scheduled(fixedRate = 5000)
     public void fetchItems() {
         RestTemplate restTemplate = new RestTemplate();
-        String items = restTemplate.getForObject(host + ENDPOINT + QUERY_PARAMETER, String.class);
+        UserPost[] userPost = restTemplate.getForObject(host + ENDPOINT + QUERY_PARAMETER, UserPost[].class);
 
-        LOG.info(items);
+        LOG.info(userPost[0].toString());
     }
 }
