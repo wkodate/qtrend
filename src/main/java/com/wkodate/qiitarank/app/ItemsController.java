@@ -41,7 +41,7 @@ public class ItemsController {
                     return itemRepository.save(item);
                 })
                 .orElseGet(() -> {
-                    newItem.setId(id);
+                    newItem.setId(String.valueOf(id));
                     return itemRepository.save(newItem);
                 });
     }

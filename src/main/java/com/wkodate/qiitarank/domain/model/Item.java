@@ -2,28 +2,39 @@ package com.wkodate.qiitarank.domain.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
 public class Item {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long itemId;
+
+    private String id;
+
+    private String title;
+
+    private String commentsCount;
+
+    private Date createdAt;
+
+    private Integer likesCount;
+
+    @OneToMany
+    private List<Tag> tags;
+
+    private Date updatedAt;
 
     private String url;
-    private String user;
-    private Long likesCount;
 
-    public Item() {
-    }
+    @ManyToOne
+    private User user;
 
-    public Item(String url, String user, Long likesCount) {
-        this.url = url;
-        this.user = user;
-        this.likesCount = likesCount;
-    }
+    private Integer pageViewCount;
+
+
 }

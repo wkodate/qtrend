@@ -1,6 +1,6 @@
 package com.wkodate.qiitarank.domain.service;
 
-import com.wkodate.qiitarank.domain.model.UserPost;
+import com.wkodate.qiitarank.domain.model.Item;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -23,8 +23,8 @@ public class ItemFetcher {
     @Scheduled(fixedRate = 5000)
     public void fetchItems() {
         RestTemplate restTemplate = new RestTemplate();
-        UserPost[] userPost = restTemplate.getForObject(host + ENDPOINT + QUERY_PARAMETER, UserPost[].class);
+        Item[] item = restTemplate.getForObject(host + ENDPOINT + QUERY_PARAMETER, Item[].class);
 
-        LOG.info(userPost[0].toString());
+        LOG.info(item[0].toString());
     }
 }
