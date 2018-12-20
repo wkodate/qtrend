@@ -1,4 +1,4 @@
-package com.wkodate.qiitarank.domain.model;
+package com.wkodate.qtrend.domain.model;
 
 import lombok.Data;
 

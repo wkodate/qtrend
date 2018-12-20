@@ -1,4 +1,4 @@
-package com.wkodate.qiitarank.app;
+package com.wkodate.qtrend.app;
 
 public class ItemNotFoundException extends RuntimeException {
 

@@ -1,6 +1,6 @@
-package com.wkodate.qiitarank.domain.repository;
+package com.wkodate.qtrend.domain.repository;
 
-import com.wkodate.qiitarank.domain.model.Item;
+import com.wkodate.qtrend.domain.model.Item;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 

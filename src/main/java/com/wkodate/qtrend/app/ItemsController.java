@@ -1,7 +1,7 @@
-package com.wkodate.qiitarank.app;
+package com.wkodate.qtrend.app;
 
-import com.wkodate.qiitarank.domain.model.Item;
-import com.wkodate.qiitarank.domain.repository.ItemRepository;
+import com.wkodate.qtrend.domain.model.Item;
+import com.wkodate.qtrend.domain.repository.ItemRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

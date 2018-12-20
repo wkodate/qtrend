@@ -1,6 +1,6 @@
-package com.wkodate.qiitarank.domain.service;
+package com.wkodate.qtrend.domain.service;
 
-import com.wkodate.qiitarank.domain.model.Item;
+import com.wkodate.qtrend.domain.model.Item;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
