@@ -1,4 +1,4 @@
-package com.wkodate.qtrend.domain.service;
+package com.wkodate.qtrend.domain.scheduling;
 
 import com.wkodate.qtrend.domain.model.Item;
 import org.slf4j.Logger;
