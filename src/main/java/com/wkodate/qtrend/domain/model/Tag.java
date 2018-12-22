@@ -2,10 +2,7 @@ package com.wkodate.qtrend.domain.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -18,5 +15,9 @@ public class Tag {
     private String name;
 
     private String[] versions;
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn
+    private Item item;
 
 }

@@ -24,14 +24,15 @@ public class Item {
 
     private Integer likesCount;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "item")
     private List<Tag> tags;
 
     private Date updatedAt;
 
     private String url;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn
     private User user;
 
     private Integer pageViewCount;

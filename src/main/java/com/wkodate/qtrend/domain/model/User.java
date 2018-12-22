@@ -1,14 +1,19 @@
 package com.wkodate.qtrend.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long userId;
+
     private Long permanentId;
 
     private String facebookId;
@@ -36,5 +41,9 @@ public class User {
     private String twitterScreenName;
 
     private String websiteUrl;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    @JsonIgnore
+    private List<Item> item;
 
 }
