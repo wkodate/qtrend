@@ -11,9 +11,6 @@ import java.util.List;
 public class Item {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long itemId;
-
     private String id;
 
     private String title;

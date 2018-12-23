@@ -17,20 +17,22 @@ public class ItemFetcher {
 
     private static final Logger LOG = LoggerFactory.getLogger(ItemFetcher.class);
 
-    private static final String ENDPOINT = "/api/v2/items";
-
-    private static final String QUERY_PARAMETER = "?page=1&per_page=10";
-
     @Autowired
     ItemService itemService;
 
-    @Value("${host}")
+    @Value("${app.fetcher.host}")
     private String host;
 
-    @Scheduled(fixedRate = 5000)
+    @Value("${app.fetcher.endpoint}")
+    private String endpoint = "/api/v2/items";
+
+    @Value("${app.fetcher.query_parameter}")
+    private String queryParameter = "?page=1&per_page=20";
+
+    @Scheduled(cron = "${app.fetcher.cron}")
     public void fetchItems() {
         RestTemplate restTemplate = new RestTemplate();
-        Item[] item = restTemplate.getForObject(host + ENDPOINT + QUERY_PARAMETER, Item[].class);
+        Item[] item = restTemplate.getForObject(host + endpoint + "?" + queryParameter, Item[].class);
         itemService.saveAll(Arrays.asList(item));
     }
 
