@@ -1,8 +1,10 @@
 package com.wkodate.qtrend.domain.scheduling;
 
 import com.wkodate.qtrend.domain.model.Item;
+import com.wkodate.qtrend.domain.model.Tag;
 import com.wkodate.qtrend.domain.model.User;
 import com.wkodate.qtrend.domain.service.ItemService;
+import com.wkodate.qtrend.domain.service.TagService;
 import com.wkodate.qtrend.domain.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,6 +27,8 @@ public class ItemFetcher {
     ItemService itemService;
     @Autowired
     UserService userService;
+    @Autowired
+    TagService tagService;
 
     @Value("${app.fetcher.host}")
     private String host;
@@ -41,11 +45,14 @@ public class ItemFetcher {
         Item[] item = restTemplate.getForObject(
                 host + endpoint + "?" + queryParameter, Item[].class);
         List<User> users = new ArrayList<>();
+        List<Tag> tags = new ArrayList<>();
         for (int i = 0; i < item.length; i++) {
             users.add(item[i].getUser());
+            tags.addAll(item[i].getTags());
         }
         userService.saveAll(users);
         itemService.saveAll(Arrays.asList(item));
+        tagService.saveAll(tags);
         System.out.println(item[0].toString());
     }
 

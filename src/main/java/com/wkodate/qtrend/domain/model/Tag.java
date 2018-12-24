@@ -1,5 +1,6 @@
 package com.wkodate.qtrend.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -18,6 +19,7 @@ public class Tag {
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn
+    @JsonIgnore
     private Item item;
 
 }

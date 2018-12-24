@@ -25,7 +25,9 @@ public class Item {
     @JsonProperty("likes_count")
     private Integer likesCount;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "item")
+    // TODO save tags
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "item")
+    @OrderColumn
     private List<Tag> tags;
 
     @JsonProperty("updated_at")
