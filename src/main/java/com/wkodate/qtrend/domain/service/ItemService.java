@@ -36,4 +36,8 @@ public class ItemService {
         itemRepository.deleteById(id);
     }
 
+    public Iterable<Item> sortByLikes() {
+        return itemRepository.findTop10AllByOrderByLikesCountDesc();
+    }
+
 }
