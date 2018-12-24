@@ -1,5 +1,6 @@
 package com.wkodate.qtrend.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -15,15 +16,19 @@ public class Item {
 
     private String title;
 
+    @JsonProperty("comments_count")
     private String commentsCount;
 
+    @JsonProperty("created_at")
     private Date createdAt;
 
+    @JsonProperty("likes_count")
     private Integer likesCount;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "item")
     private List<Tag> tags;
 
+    @JsonProperty("updated_at")
     private Date updatedAt;
 
     private String url;
@@ -32,7 +37,8 @@ public class Item {
     @JoinColumn
     private User user;
 
-    private Integer pageViewCount;
+    @JsonProperty("page_views_count")
+    private Integer pageViewsCount;
 
 
 }
