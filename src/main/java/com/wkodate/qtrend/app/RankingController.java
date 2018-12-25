@@ -12,9 +12,6 @@ public class RankingController {
     @Autowired
     private ItemService itemService;
 
-    public RankingController() {
-    }
-
     @GetMapping("/")
     public Iterable<Item> getLikesRanking() {
         return itemService.sortByLikes();
