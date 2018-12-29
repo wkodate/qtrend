@@ -24,11 +24,11 @@ public class ItemFetcher {
     private static final Logger LOG = LoggerFactory.getLogger(ItemFetcher.class);
 
     @Autowired
-    ItemService itemService;
+    private ItemService itemService;
     @Autowired
-    UserService userService;
+    private UserService userService;
     @Autowired
-    TagService tagService;
+    private TagService tagService;
 
     @Value("${app.fetcher.host}")
     private String host;
@@ -48,12 +48,14 @@ public class ItemFetcher {
         List<Tag> tags = new ArrayList<>();
         for (int i = 0; i < item.length; i++) {
             users.add(item[i].getUser());
-            tags.addAll(item[i].getTags());
+            Tag[] t = item[i].getTags();
+            tags.addAll(Arrays.asList(t));
         }
-        userService.saveAll(users);
-        itemService.saveAll(Arrays.asList(item));
-        tagService.saveAll(tags);
         System.out.println(item[0].toString());
+        System.out.println(item[0].getTags()[0].toString());
+        userService.saveAll(users);
+        itemService.save(item[0]);
+        tagService.saveAll(tags);
     }
 
 }
