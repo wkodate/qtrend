@@ -1,4 +1,4 @@
-package com.wkodate.qtrend.domain.model;
+package com.wkodate.technews.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;

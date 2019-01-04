@@ -1,4 +1,4 @@
-package com.wkodate.qtrend;
+package com.wkodate.technews;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

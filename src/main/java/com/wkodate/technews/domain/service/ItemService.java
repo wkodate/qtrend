@@ -1,8 +1,8 @@
-package com.wkodate.qtrend.domain.service;
+package com.wkodate.technews.domain.service;
 
-import com.wkodate.qtrend.domain.model.Item;
-import com.wkodate.qtrend.domain.repository.ItemRepository;
-import com.wkodate.qtrend.domain.scheduling.ItemFetcher;
+import com.wkodate.technews.domain.model.Item;
+import com.wkodate.technews.domain.repository.ItemRepository;
+import com.wkodate.technews.domain.scheduling.ItemFetcher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

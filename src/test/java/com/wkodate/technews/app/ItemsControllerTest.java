@@ -1,4 +1,4 @@
-package com.wkodate.qtrend.app;
+package com.wkodate.technews.app;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

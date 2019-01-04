@@ -1,7 +1,7 @@
-package com.wkodate.qtrend.app;
+package com.wkodate.technews.app;
 
-import com.wkodate.qtrend.domain.model.Item;
-import com.wkodate.qtrend.domain.service.ItemService;
+import com.wkodate.technews.domain.model.Item;
+import com.wkodate.technews.domain.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,7 +1,7 @@
-package com.wkodate.qtrend.app;
+package com.wkodate.technews.app;
 
-import com.wkodate.qtrend.domain.model.User;
-import com.wkodate.qtrend.domain.service.UserService;
+import com.wkodate.technews.domain.model.User;
+import com.wkodate.technews.domain.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

@@ -1,1 +1,1 @@
-# qtrend
+# technews

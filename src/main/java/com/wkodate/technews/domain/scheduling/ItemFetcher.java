@@ -1,11 +1,11 @@
-package com.wkodate.qtrend.domain.scheduling;
+package com.wkodate.technews.domain.scheduling;
 
-import com.wkodate.qtrend.domain.model.Item;
-import com.wkodate.qtrend.domain.model.Tag;
-import com.wkodate.qtrend.domain.model.User;
-import com.wkodate.qtrend.domain.service.ItemService;
-import com.wkodate.qtrend.domain.service.TagService;
-import com.wkodate.qtrend.domain.service.UserService;
+import com.wkodate.technews.domain.model.Item;
+import com.wkodate.technews.domain.model.Tag;
+import com.wkodate.technews.domain.model.User;
+import com.wkodate.technews.domain.service.ItemService;
+import com.wkodate.technews.domain.service.TagService;
+import com.wkodate.technews.domain.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

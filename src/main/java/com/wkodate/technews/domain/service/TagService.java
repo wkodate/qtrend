@@ -1,7 +1,7 @@
-package com.wkodate.qtrend.domain.service;
+package com.wkodate.technews.domain.service;
 
-import com.wkodate.qtrend.domain.model.Tag;
-import com.wkodate.qtrend.domain.repository.TagRepository;
+import com.wkodate.technews.domain.model.Tag;
+import com.wkodate.technews.domain.repository.TagRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

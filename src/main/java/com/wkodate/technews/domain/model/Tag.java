@@ -1,4 +1,4 @@
-package com.wkodate.qtrend.domain.model;
+package com.wkodate.technews.domain.model;
 
 import lombok.Data;
 
