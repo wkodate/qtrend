@@ -2,6 +2,7 @@ package com.wkodate.qtrend.domain.service;
 
 import com.wkodate.qtrend.domain.model.Item;
 import com.wkodate.qtrend.domain.repository.ItemRepository;
+import com.wkodate.qtrend.domain.scheduling.ItemFetcher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,6 +16,9 @@ public class ItemService {
 
     @Autowired
     ItemRepository itemRepository;
+
+    @Autowired
+    ItemFetcher itemFetcher;
 
     public Iterable<Item> findAll() {
         return itemRepository.findAll();
@@ -38,6 +42,10 @@ public class ItemService {
 
     public Iterable<Item> sortByLikes() {
         return itemRepository.findTop10AllByOrderByLikesCountDesc();
+    }
+
+    public Iterable<Item> fetch() {
+        return itemFetcher.fetchItems();
     }
 
 }

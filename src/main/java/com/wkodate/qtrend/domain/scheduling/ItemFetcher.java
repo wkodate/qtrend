@@ -40,22 +40,22 @@ public class ItemFetcher {
     private String queryParameter;
 
     @Scheduled(cron = "${app.fetcher.cron}")
-    public void fetchItems() {
+    public Iterable<Item> fetchItems() {
         RestTemplate restTemplate = new RestTemplate();
-        Item[] item = restTemplate.getForObject(
+        Item[] items = restTemplate.getForObject(
                 host + endpoint + "?" + queryParameter, Item[].class);
         List<User> users = new ArrayList<>();
         List<Tag> tags = new ArrayList<>();
-        for (int i = 0; i < item.length; i++) {
-            users.add(item[i].getUser());
-            Tag[] t = item[i].getTags();
+        for (int i = 0; i < items.length; i++) {
+            users.add(items[i].getUser());
+            Tag[] t = items[i].getTags();
             tags.addAll(Arrays.asList(t));
         }
-        System.out.println(item[0].toString());
-        System.out.println(item[0].getTags()[0].toString());
+        LOG.info(items[0].toString());
+        LOG.info(items[0].getTags()[0].toString());
         userService.saveAll(users);
-        itemService.save(item[0]);
         tagService.saveAll(tags);
+        return itemService.saveAll(Arrays.asList(items));
     }
 
 }

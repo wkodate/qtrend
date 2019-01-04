@@ -47,4 +47,9 @@ public class ItemsController {
         itemService.delete(id);
     }
 
+    @PostMapping("/fetch")
+    public Iterable<Item> fetchRequest() {
+        return itemService.fetch();
+    }
+
 }

@@ -2,11 +2,13 @@ package com.wkodate.qtrend.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Data
+@ToString(exclude = {"user"})
 @Entity
 public class Item {
 
