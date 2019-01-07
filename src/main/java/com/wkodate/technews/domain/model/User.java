@@ -17,25 +17,14 @@ import java.util.List;
 public class User {
 
     @Id
-    private String id;
-
     @JsonProperty("permanent_id")
     private Long permanentId;
 
     @JsonProperty("facebook_id")
     private String facebookId;
 
-    @JsonProperty("followees_count")
-    private Integer followeesCount;
-
-    @JsonProperty("followers_count")
-    private Integer followersCount;
-
-    @JsonProperty("girhub_login_name")
+    @JsonProperty("github_login_name")
     private String githubLoginName;
-
-    @JsonProperty("items_count")
-    private Integer itemsCount;
 
     @JsonProperty("linkedin_id")
     private String linkedinId;
