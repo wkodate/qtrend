@@ -1,11 +1,11 @@
-package com.wkodate.qtrend.domain.scheduling;
+package com.wkodate.technews.domain.scheduling;
 
-import com.wkodate.qtrend.domain.model.Item;
-import com.wkodate.qtrend.domain.model.Tag;
-import com.wkodate.qtrend.domain.model.User;
-import com.wkodate.qtrend.domain.service.ItemService;
-import com.wkodate.qtrend.domain.service.TagService;
-import com.wkodate.qtrend.domain.service.UserService;
+import com.wkodate.technews.domain.model.Item;
+import com.wkodate.technews.domain.model.Tag;
+import com.wkodate.technews.domain.model.User;
+import com.wkodate.technews.domain.service.ItemService;
+import com.wkodate.technews.domain.service.TagService;
+import com.wkodate.technews.domain.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,11 +24,11 @@ public class ItemFetcher {
     private static final Logger LOG = LoggerFactory.getLogger(ItemFetcher.class);
 
     @Autowired
-    ItemService itemService;
+    private ItemService itemService;
     @Autowired
-    UserService userService;
+    private UserService userService;
     @Autowired
-    TagService tagService;
+    private TagService tagService;
 
     @Value("${app.fetcher.host}")
     private String host;
@@ -40,20 +40,22 @@ public class ItemFetcher {
     private String queryParameter;
 
     @Scheduled(cron = "${app.fetcher.cron}")
-    public void fetchItems() {
+    public Iterable<Item> fetchItems() {
         RestTemplate restTemplate = new RestTemplate();
-        Item[] item = restTemplate.getForObject(
+        Item[] items = restTemplate.getForObject(
                 host + endpoint + "?" + queryParameter, Item[].class);
         List<User> users = new ArrayList<>();
         List<Tag> tags = new ArrayList<>();
-        for (int i = 0; i < item.length; i++) {
-            users.add(item[i].getUser());
-            tags.addAll(item[i].getTags());
+        for (int i = 0; i < items.length; i++) {
+            users.add(items[i].getUser());
+            Tag[] t = items[i].getTags();
+            tags.addAll(Arrays.asList(t));
         }
+        LOG.info(items[0].toString());
+        LOG.info(items[0].getTags()[0].toString());
         userService.saveAll(users);
-        itemService.saveAll(Arrays.asList(item));
         tagService.saveAll(tags);
-        System.out.println(item[0].toString());
+        return itemService.saveAll(Arrays.asList(items));
     }
 
 }

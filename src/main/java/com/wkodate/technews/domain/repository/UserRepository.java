@@ -1,6 +1,6 @@
-package com.wkodate.qtrend.domain.repository;
+package com.wkodate.technews.domain.repository;
 
-import com.wkodate.qtrend.domain.model.User;
+import com.wkodate.technews.domain.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
