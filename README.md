@@ -1,3 +1,15 @@
 # technews
 
-https://thawing-mesa-57601.herokuapp.com/
+ローカル環境
+
+```
+$ ./gradlew build && heroku local -e .env.local
+```
+
+リモート環境
+
+```
+$ git push heroku master
+$ heroku open
+```
+

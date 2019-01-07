@@ -54,7 +54,12 @@ public class ItemFetcher {
         LOG.info(items[0].toString());
         LOG.info(items[0].getTags()[0].toString());
         userService.saveAll(users);
-        tagService.saveAll(tags);
+        for (User user : users) {
+            userService.save(user);
+        }
+        for (Tag tag : tags) {
+            tagService.save(tag);
+        }
         return itemService.saveAll(Arrays.asList(items));
     }
 

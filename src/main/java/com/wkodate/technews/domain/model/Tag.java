@@ -10,8 +10,10 @@ import java.util.List;
 public class Tag {
 
     @Id
+    @Column(length = 191)
     private String name;
 
+    @Column(length = 191)
     private String[] versions;
 
     @ManyToMany(cascade = CascadeType.ALL)

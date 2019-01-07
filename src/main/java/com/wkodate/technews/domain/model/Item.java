@@ -13,11 +13,14 @@ import java.util.Date;
 public class Item {
 
     @Id
+    @Column(length = 191)
     private String id;
 
+    @Column(length = 191)
     private String title;
 
     @JsonProperty("comments_count")
+    @Column(length = 191)
     private String commentsCount;
 
     @JsonProperty("created_at")
@@ -34,6 +37,7 @@ public class Item {
     @JsonProperty("updated_at")
     private Date updatedAt;
 
+    @Column(length = 191)
     private String url;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
