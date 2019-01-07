@@ -19,8 +19,6 @@ public class User {
     @Id
     private String id;
 
-    private String description;
-
     @JsonProperty("permanent_id")
     private Long permanentId;
 
@@ -45,8 +43,6 @@ public class User {
     private String location;
 
     private String name;
-
-    private String organization;
 
     @JsonProperty("profile_image_url")
     private String profileImageUrl;
