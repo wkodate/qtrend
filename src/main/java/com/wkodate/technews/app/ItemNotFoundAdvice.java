@@ -1,4 +1,4 @@
-package com.wkodate.qtrend.app;
+package com.wkodate.technews.app;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;

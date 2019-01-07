@@ -1,13 +1,14 @@
-package com.wkodate.qtrend.domain.model;
+package com.wkodate.technews.domain.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Data
+@ToString(exclude = {"user"})
 @Entity
 public class Item {
 
@@ -25,10 +26,10 @@ public class Item {
     @JsonProperty("likes_count")
     private Integer likesCount;
 
-    // TODO save tags
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "item")
+    @ManyToMany(cascade = CascadeType.ALL)
     @OrderColumn
-    private List<Tag> tags;
+    @JoinColumn
+    private Tag[] tags;
 
     @JsonProperty("updated_at")
     private Date updatedAt;
