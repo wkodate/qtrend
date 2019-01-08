@@ -46,10 +46,17 @@ public class ItemService {
         return itemRepository.findTop10AllByOrderByLikesCountDesc();
     }
 
-    public Iterable<Item> sortByLikesForOneWeek() {
+    public Iterable<Item> sortDailyByLikes() {
         Calendar c = Calendar.getInstance();
         c.setTime(new Date());
         c.add(Calendar.DATE, -1);
+        return itemRepository.findTop10AllByCreatedAtAfterOrderByLikesCountDesc(c.getTime());
+    }
+
+    public Iterable<Item> sortWeeklyByLikes() {
+        Calendar c = Calendar.getInstance();
+        c.setTime(new Date());
+        c.add(Calendar.DAY_OF_WEEK, -1);
         return itemRepository.findTop10AllByCreatedAtAfterOrderByLikesCountDesc(c.getTime());
     }
 

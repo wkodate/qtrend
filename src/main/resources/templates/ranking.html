@@ -1,15 +1,21 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>TechNews</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>TechNews</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<p th:text="Ranking"/>
+<p>Daily Ranking</p>
 <ol>
-	<li th:each="item : ${items}">
-		<a th:href="${item.url}" target="_blank">[[${item.title}]]</a> [[${item.likesCount}]]いいね
-	</li>
+    <li th:each="dItem : ${dailyItems}">
+        <a th:href="${dItem.url}" target="_blank">[[${dItem.title}]]</a> [[${dItem.likesCount}]]いいね
+    </li>
+</ol>
+<p>Weekly Ranking</p>
+<ol>
+    <li th:each="wItem : ${weeklyItems}">
+        <a th:href="${wItem.url}" target="_blank">[[${wItem.title}]]</a> [[${wItem.likesCount}]]いいね
+    </li>
 </ol>
 </body>
 </html>
