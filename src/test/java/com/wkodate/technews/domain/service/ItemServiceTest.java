@@ -22,8 +22,8 @@ public class ItemServiceTest {
     }
 
     @Test
-    public void sortByLikesAfterDateTest() {
-        assertThat(itemService.sortByLikesForOneWeek()).isNotNull();
+    public void sortDailyByLikesTest() {
+        assertThat(itemService.sortDailyByLikes()).isNotNull();
     }
 
 }
