@@ -15,9 +15,9 @@ public class QiitaRankingController {
 
     @GetMapping("/")
     public String getLikesRanking(Model model) {
-            Iterable<Item> items = itemService.sortByLikes();
-            model.addAttribute("items", items);
-            return "ranking";
+        Iterable<Item> items = itemService.sortByLikesForOneWeek();
+        model.addAttribute("items", items);
+        return "ranking";
     }
 
 }
