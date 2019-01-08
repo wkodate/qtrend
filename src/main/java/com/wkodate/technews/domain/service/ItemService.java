@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -42,6 +44,13 @@ public class ItemService {
 
     public Iterable<Item> sortByLikes() {
         return itemRepository.findTop10AllByOrderByLikesCountDesc();
+    }
+
+    public Iterable<Item> sortByLikesForOneWeek() {
+        Calendar c = Calendar.getInstance();
+        c.setTime(new Date());
+        c.add(Calendar.DATE, -1);
+        return itemRepository.findTop10AllByCreatedAtAfterOrderByLikesCountDesc(c.getTime());
     }
 
     public Iterable<Item> fetch() {
