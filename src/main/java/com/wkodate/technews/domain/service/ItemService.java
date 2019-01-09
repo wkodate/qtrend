@@ -49,14 +49,14 @@ public class ItemService {
     public Iterable<Item> sortDailyByLikes() {
         Calendar c = Calendar.getInstance();
         c.setTime(new Date());
-        c.add(Calendar.DATE, -1);
+        c.add(Calendar.DAY_OF_YEAR, -1);
         return itemRepository.findTop10AllByCreatedAtAfterOrderByLikesCountDesc(c.getTime());
     }
 
     public Iterable<Item> sortWeeklyByLikes() {
         Calendar c = Calendar.getInstance();
         c.setTime(new Date());
-        c.add(Calendar.DAY_OF_WEEK, -1);
+        c.add(Calendar.DAY_OF_MONTH, -7);
         return itemRepository.findTop10AllByCreatedAtAfterOrderByLikesCountDesc(c.getTime());
     }
 
