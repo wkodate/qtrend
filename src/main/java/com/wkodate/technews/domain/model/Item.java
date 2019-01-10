@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.ToString;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Data
@@ -13,14 +14,14 @@ import java.util.Date;
 public class Item {
 
     @Id
-    @Column(length = 191)
+    @Column
     private String id;
 
-    @Column(length = 191)
+    @Column
     private String title;
 
     @JsonProperty("comments_count")
-    @Column(length = 191)
+    @Column
     private String commentsCount;
 
     @JsonProperty("created_at")
@@ -37,7 +38,7 @@ public class Item {
     @JsonProperty("updated_at")
     private Date updatedAt;
 
-    @Column(length = 191)
+    @Column
     private String url;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
