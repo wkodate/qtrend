@@ -1,21 +1,66 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
 <head>
-    <title>TechNews</title>
+    <title>Technews</title>
+    <!-- Responsive-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap-->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+          crossorigin="anonymous">
 </head>
 <body>
-<p>Daily Ranking</p>
-<ol>
-    <li th:each="dItem : ${dailyItems}">
-        <a th:href="${dItem.url}" target="_blank">[[${dItem.title}]]</a> [[${dItem.likesCount}]]いいね
-    </li>
-</ol>
-<p>Weekly Ranking</p>
-<ol>
-    <li th:each="wItem : ${weeklyItems}">
-        <a th:href="${wItem.url}" target="_blank">[[${wItem.title}]]</a> [[${wItem.likesCount}]]いいね
-    </li>
-</ol>
+
+<div class="container">
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand-sm navbar-light">
+                <a href="" class="navbar-brand">Technews</a>
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#menu">
+                    <span class="navbar-toggler-icon"> </span>
+                </button>
+                <div id="menu" class="collapse navbar-collapse">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a href="" class="nav-link">Qiita</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="" bg-light text-centor py-5>
+        <h4>Daily Ranking</h4>
+        <table class="table table-hover">
+            <tbody>
+            <tr class="row" th:each="dItem : ${dailyItems}">
+                <td class="col-md-10">
+                    <a th:href="${dItem.url}" target="_blank">[[${dItem.title}]]</a>
+                </td>
+                <td class="col-md-2">[[${dItem.likesCount}]] いいね</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section class="" bg-light text-centor py-5>
+        <h4>Weekly Ranking</h4>
+        <table class="table table-hover">
+            <tbody>
+            <tr class="row" th:each="wItem : ${weeklyItems}">
+                <td class="col-md-10">
+                    <a th:href="${wItem.url}" target="_blank">[[${wItem.title}]]</a>
+                </td>
+                <td class="col-md-2">[[${wItem.likesCount}]] いいね</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <footer class="text-center text-muted py-4">Copyright 2019 wkodate</footer>
+</div>
 </body>
 </html>
