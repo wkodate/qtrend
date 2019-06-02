@@ -13,4 +13,6 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
     List<Item> findTop10AllByOrderByLikesCountDesc();
 
     List<Item> findTop10AllByCreatedAtAfterOrderByLikesCountDesc(Date date);
+
+    List<Item> findByCreatedAt(Date date);
 }
